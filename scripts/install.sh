@@ -103,11 +103,34 @@ install_backend() {
     (cd "$PROJECT_ROOT" && uv pip install -e "$install_target")
     print_success "Backend dependencies installed"
 
-    print_step "Downloading UniDic dictionary..."
-    if (cd "$PROJECT_ROOT" && uv run --no-sync python -m unidic download); then
-        print_success "UniDic dictionary downloaded"
+    print_step "Checking UniDic dictionary..."
+    if (cd "$PROJECT_ROOT" && uv run --no-sync python - <<'PY'
+import os
+import sys
+
+try:
+    import unidic
+except Exception:
+    sys.exit(1)
+
+dicdir = getattr(unidic, "DICDIR", None)
+# UniDic 3.1 ships these core files; model.def is model.bin in this version
+required = ["dicrc", "matrix.bin", "sys.dic", "version"]
+if dicdir and os.path.isdir(dicdir) and all(
+    os.path.isfile(os.path.join(dicdir, name)) for name in required
+):
+    sys.exit(0)
+sys.exit(1)
+PY
+    ); then
+        print_success "UniDic dictionary already present; skipping download"
     else
-        print_warning "Failed to download UniDic dictionary. You may need to run: python -m unidic download"
+        print_step "Downloading UniDic dictionary..."
+        if (cd "$PROJECT_ROOT" && uv run --no-sync python -m unidic download); then
+            print_success "UniDic dictionary downloaded"
+        else
+            print_warning "Failed to download UniDic dictionary. You may need to run: python -m unidic download"
+        fi
     fi
 
     if [[ "$SKIP_MODEL" != true ]]; then

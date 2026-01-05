@@ -19,7 +19,7 @@ def _verify_config(config_path: str) -> None:
     if not os.path.exists(config_path):
         raise RuntimeError(f"Missing config.json at {config_path}")
     try:
-        with open(config_path) as f:
+        with open(config_path, encoding="utf-8") as f:
             json.load(f)
     except Exception as exc:
         raise RuntimeError(f"Invalid config.json at {config_path}: {exc}") from exc

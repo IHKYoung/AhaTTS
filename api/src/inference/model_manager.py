@@ -28,7 +28,7 @@ class ModelManager:
 
     def _determine_device(self) -> str:
         """Determine device based on settings."""
-        return "cuda" if settings.use_gpu else "cpu"
+        return settings.get_device()
 
     async def initialize(self) -> None:
         """Initialize AhaTTS V1 backend."""

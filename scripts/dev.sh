@@ -17,14 +17,7 @@ source "$(dirname "${BASH_SOURCE[0]}")/_common.sh"
 HOST="0.0.0.0"
 PORT="25288"
 
-case "$(uname -s)" in
-    Darwin)
-        DEVICE="mps"
-        ;;
-    *)
-        DEVICE="cpu"
-        ;;
-esac
+DEVICE=""
 
 # =============================================================================
 # Usage
@@ -44,6 +37,28 @@ Examples:
   ./scripts/dev.sh --device gpu        # Start backend with GPU
   ./scripts/dev.sh --host 127.0.0.1    # Bind to localhost only
 EOF
+}
+
+# =============================================================================
+# Auto Detect Device
+# =============================================================================
+auto_detect_device() {
+    local detected
+    detected=$((cd "$PROJECT_ROOT" && uv run --no-sync python - <<'PY'
+import torch
+if torch.backends.mps.is_available():
+    print("mac")
+elif torch.cuda.is_available():
+    print("gpu")
+else:
+    print("cpu")
+PY
+    ) || true)
+
+    DEVICE="$(normalize_device "${detected:-}")"
+    if [[ -z "$DEVICE" ]]; then
+        DEVICE="cpu"
+    fi
 }
 
 # =============================================================================
@@ -82,6 +97,12 @@ print_header "AhaTTS Backend API"
 
 check_uv
 check_backend_deps
+
+if [[ -z "$DEVICE" ]]; then
+    print_step "Auto-detecting device..."
+    auto_detect_device
+fi
+
 setup_backend_env "$DEVICE"
 
 print_info "Device: $DEVICE"
