@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AhaTTS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="brand">
+                <h1 class="logo">Aha<span class="logo-accent">TTS</span></h1>
+                <span class="brand-pill">Local Voice Studio</span>
+            </div>
+            <p class="tagline">Local multilingual text-to-speech</p>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main">
+            <!-- Text Input Area -->
+            <div class="input-section panel">
+                <textarea
+                    id="textInput"
+                    class="text-input"
+                    placeholder="Enter text to speak..."
+                    rows="6"
+                ></textarea>
+
+                <!-- Character Count -->
+                <div class="input-meta">
+                    <span id="charCount">0</span> characters
+                </div>
+            </div>
+
+            <!-- Controls Row -->
+            <div class="controls-row panel">
+                <!-- Voice Selector -->
+                <div class="control-group">
+                    <label class="control-label">Voice</label>
+                    <div class="voice-selector">
+                        <select id="voiceSelect" class="select-input">
+                            <option value="af_heart">🇺🇸 ♀ Heart</option>
+                        </select>
+                        <button id="previewVoice" class="btn-icon" title="Preview voice">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Speed Control -->
+                <div class="control-group">
+                    <label class="control-label">Speed <span id="speedValue">1.0</span>x</label>
+                    <input type="range" id="speedSlider" class="slider" min="0.5" max="2.0" step="0.1" value="1.0">
+                </div>
+
+                <!-- Format Selector -->
+                <div class="control-group">
+                    <label class="control-label">Format</label>
+                    <select id="formatSelect" class="select-input">
+                        <option value="mp3">MP3</option>
+                        <option value="wav">WAV</option>
+                        <option value="opus">OPUS</option>
+                        <option value="flac">FLAC</option>
+                    </select>
+                </div>
+
+                <!-- Generate Button -->
+                <button id="generateBtn" class="btn-primary">
+                    <span class="btn-text">Generate Speech</span>
+                    <span class="btn-loading hidden">
+                        <svg class="spinner" viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" fill="none" stroke-dasharray="31.4 31.4" stroke-linecap="round"/>
+                        </svg>
+                    </span>
+                </button>
+            </div>
+
+            <!-- Audio Player -->
+            <div id="playerSection" class="player-section panel hidden">
+                <div class="player-container">
+                    <audio id="audioPlayer" controls></audio>
+                    <button id="downloadBtn" class="btn-secondary">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
+                        Download
+                    </button>
+                </div>
+            </div>
+
+            <!-- Status Message -->
+            <div id="statusMessage" class="status-message hidden"></div>
+        </main>
+
+        <!-- Footer -->
+    <footer class="footer">
+        <p>Built by <a href="https://github.com/IHKYoung" target="_blank" rel="noopener noreferrer">Clarke Young</a></p>
+    </footer>
+</div>
+
+    <script>
+        window.PREVIEW_TEXT_BY_LANG = {
+            A: "Hello, this is a voice preview.",
+            B: "Hello, this is a voice preview.",
+            E: "Hola, esta es una vista previa de la voz.",
+            F: "Bonjour, ceci est un aperçu de la voix.",
+            H: "नमस्ते, यह आवाज़ का पूर्वावलोकन है।",
+            I: "Ciao, questa è un'anteprima della voce.",
+            J: "こんにちは、これは音声のプレビューです。",
+            P: "Olá, esta é uma prévia da voz.",
+            Z: "你好，这是声音预览。",
+            OTHER: "Hello, this is a voice preview."
+        };
+    </script>
+    <script src="app.js"></script>
+</body>
+</html>
