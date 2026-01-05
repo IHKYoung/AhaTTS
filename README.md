@@ -1,14 +1,6 @@
 # AhaTTS
 
 <p align="center">
-  <a href="https://github.com/IHKYoung/AhaTTS/stargazers"><img src="https://img.shields.io/github/stars/IHKYoung/AhaTTS?style=flat" alt="GitHub stars" /></a>
-  <a href="https://github.com/IHKYoung/AhaTTS/forks"><img src="https://img.shields.io/github/forks/IHKYoung/AhaTTS?style=flat" alt="GitHub forks" /></a>
-  <a href="https://github.com/IHKYoung/AhaTTS/issues"><img src="https://img.shields.io/github/issues/IHKYoung/AhaTTS?style=flat" alt="GitHub issues" /></a>
-  <a href="https://github.com/IHKYoung/AhaTTS/pulls"><img src="https://img.shields.io/github/issues-pr/IHKYoung/AhaTTS?style=flat" alt="GitHub pull requests" /></a>
-  <a href="https://github.com/IHKYoung/AhaTTS/commits/main"><img src="https://img.shields.io/github/last-commit/IHKYoung/AhaTTS?style=flat" alt="Last commit" /></a>
-</p>
-
-<p align="center">
   <a href="https://github.com/IHKYoung/AhaTTS/releases"><img src="https://img.shields.io/github/v/release/IHKYoung/AhaTTS?style=flat" alt="Release" /></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey?style=flat&logo=creative-commons&logoColor=white" alt="License: CC BY-NC 4.0" /></a>
   <img src="https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white" alt="Python 3.10+" />
@@ -17,7 +9,7 @@
 </p>
 
 <p align="center">
-  <em>Language: English is open by default. Click the section headers to switch.</em>
+  <strong>Language:</strong> <a href="#english">English</a> | <a href="#简体中文">简体中文</a>
 </p>
 
 AhaTTS is an open-source, production-ready text-to-speech service with an OpenAI-compatible API and a built-in web demo.
@@ -26,8 +18,7 @@ AhaTTS is an open-source, production-ready text-to-speech service with an OpenAI
   <img src="assets/AhaTTS.png" alt="AhaTTS" width="720" />
 </p>
 
-<details open>
-<summary id="english"><strong>English</strong></summary>
+## English
 
 ### Highlights
 - OpenAI-compatible API for drop-in integration
@@ -46,10 +37,7 @@ Visit:
 - http://localhost:25288/docs
 - http://localhost:25288/web/
 
-</details>
-
-<details>
-<summary id="简体中文"><strong>简体中文</strong></summary>
+## 简体中文
 
 AhaTTS 是开源、轻部署的语音合成服务，提供 OpenAI 兼容 API 与内置 Web 演示页面。
 
@@ -69,4 +57,3 @@ AhaTTS 是开源、轻部署的语音合成服务，提供 OpenAI 兼容 API 与
 访问：
 - http://localhost:25288/docs
 - http://localhost:25288/web/
-</details>
