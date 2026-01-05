@@ -9,28 +9,28 @@
 </p>
 
 <p align="center">
-  <strong>Language:</strong> <a href="README.md">English</a> | <a href="README.zh-CN.md">简体中文</a>
+  <strong>语言：</strong> <a href="README.zh-CN.md">简体中文</a> | <a href="README.md">English</a>
 </p>
 
-AhaTTS is an open-source, production-ready text-to-speech service with an OpenAI-compatible API and a built-in web demo.
+AhaTTS 是开源、轻部署的语音合成服务，提供 OpenAI 兼容 API 与内置 Web 演示页面。
 
 <p align="center">
   <img src="assets/AhaTTS.png" alt="AhaTTS" width="720" />
 </p>
 
-## Highlights
-- OpenAI-compatible API for drop-in integration
-- Built-in `api/web` demo UI
-- CPU / CUDA / MPS support
-- Multi-language and multi-voice (Kokoro)
-- Streaming output with high-quality audio
+## 亮点
+- OpenAI 兼容 API，便于集成
+- 内置 `api/web` 演示页面
+- CPU / CUDA / MPS 支持
+- 多语言与多音色（Kokoro）
+- 流式输出与高质量音频
 
-## Quickstart
+## 快速开始
 ```bash
-./scripts/install.sh --device cpu   # or gpu / mac
+./scripts/install.sh --device cpu   # 或 gpu / mac
 ./scripts/dev.sh
 ```
 
-Visit:
+访问：
 - http://localhost:25288/docs
 - http://localhost:25288/web/
