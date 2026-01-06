@@ -44,3 +44,8 @@ AhaTTS 是开源、轻部署的语音合成服务，提供 OpenAI 兼容 API 与
 - `voice`（string，必需）：可用的语音：`alloy`、`ash`、`coral`、`echo`、`fable`、`onyx`、`nova`、`sage`、`shimmer`。
 - `response_format`（string，可选）：音频格式，默认 `mp3`。支持：`mp3`、`opus`、`aac`、`flac`。
 - `speed`（number，可选）：生成音频速度，默认 `1.0`。可选范围 `0.5` 到 `2.0`。
+
+## 致谢
+特别感谢以下项目提供的灵感与参考实现：
+- Kokoro-FastAPI：https://github.com/remsky/Kokoro-FastAPI
+- kokoro：https://github.com/hexgrad/kokoro

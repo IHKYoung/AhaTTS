@@ -44,3 +44,8 @@ Parameters:
 - `voice` (string, required): one of `alloy`, `ash`, `coral`, `echo`, `fable`, `onyx`, `nova`, `sage`, `shimmer`.
 - `response_format` (string, optional): audio format, default `mp3`. Supported: `mp3`, `opus`, `aac`, `flac`.
 - `speed` (number, optional): audio speed, default `1.0`. Range `0.5` to `2.0`.
+
+## Acknowledgements
+Special thanks to the following projects for inspiration and reference implementations:
+- Kokoro-FastAPI: https://github.com/remsky/Kokoro-FastAPI
+- kokoro: https://github.com/hexgrad/kokoro
