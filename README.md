@@ -1,4 +1,4 @@
-# AhaTTS
+# AhaTTS - Kokoro OpenAI-API
 
 <p align="center">
   <a href="https://github.com/IHKYoung/AhaTTS/commits/main"><img src="https://img.shields.io/github/last-commit/IHKYoung/AhaTTS?style=flat" alt="Last commit" /></a>
