@@ -34,3 +34,13 @@ AhaTTS is an open-source, production-ready text-to-speech service with an OpenAI
 Visit:
 - http://localhost:25288/docs
 - http://localhost:25288/web/
+
+## OpenAI Speech API
+Request URL: `http(s)://<server-address>:<port>/v1/audio/speech` (POST).
+
+Parameters:
+- `model` (string, required): one of `tts-1` or `tts-1-hd`.
+- `input` (string, required): text to generate audio from. Max length 4096 characters.
+- `voice` (string, required): one of `alloy`, `ash`, `coral`, `echo`, `fable`, `onyx`, `nova`, `sage`, `shimmer`.
+- `response_format` (string, optional): audio format, default `mp3`. Supported: `mp3`, `opus`, `aac`, `flac`.
+- `speed` (number, optional): audio speed, default `1.0`. Range `0.5` to `2.0`.
